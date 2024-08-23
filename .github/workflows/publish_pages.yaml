@@ -24,9 +24,9 @@ jobs:
           cp index.html build/html/
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/feature/docs_for_v2' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/feature/main' }}
         with:
-          publish_branch: gh-pages
+          publish_branch: docs_for_v2
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/build/html
           force_orphan: true
