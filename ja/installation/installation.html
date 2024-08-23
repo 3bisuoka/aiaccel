@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>インストールガイド &mdash; aiaccel 2.0.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c8adcb1d"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=91613774"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="pre-commit による自動フォーマット" href="../contribution_guide/auto_formatting_guide.html" />
+    <link rel="prev" title="aiaccelドキュメント" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            aiaccel
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">インストール:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">インストールガイド <a id="top"></a></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux <a id="linux"></a></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#git">Git のインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">仮想環境の作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">仮想環境のアクティベート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aiaccel">aiaccel のインストール</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">（参考）ローカルからのインストール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#abci-ai-bridging-cloud-infrastructure">ABCI (AI Bridging Cloud Infrastructure) <a id="abci"></a></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python 環境の構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">仮想環境の作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">仮想環境のアクティベート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">aiaccel のインストール</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">（参考）ローカルからのインストール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows <a id="windows"></a></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Git のインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">仮想環境の作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">仮想環境のアクティベート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">aiaccel のインストール</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">（参考）ローカルからのインストール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#macos">macOS  <a id="macos"></a></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Git のインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">仮想環境の作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">仮想環境のアクティベート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">aiaccel のインストール</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">（参考）ローカルからのインストール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">コントリビューションガイド:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribution_guide/auto_formatting_guide.html">pre-commit による自動フォーマット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribution_guide/auto_formatting_guide.html#id5">静的フォーマットによるチェック</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tips:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tips/qrsh-inherit.html">qsubで実行中の計算ノードでコマンドを実行する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips/rsync-localdir.html">SGE_LOCALDIRを定期的にHOMEなどにrsyncする方法</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">aiaccel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <div>
+        <select name="lang" onchange="location.href=value;">
+            <option value="../../ja/installation/installation.html"
+                selected
+            >Japanese</option>
+            <option value="../../en/installation/installation.html"
+            >English</option>
+        </select>
+      </div>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">インストールガイド <a id="top"></a></li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>インストールガイド <a id="top"></a><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>ここでは下記の環境におけるaiaccelのインストール方法について説明します．</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#linux"><span class="xref myst">Linux</span></a></p></li>
+<li><p><a class="reference internal" href="#abci"><span class="xref myst">ABCI</span></a></p></li>
+<li><p><a class="reference internal" href="#windows"><span class="xref myst">Windows</span></a></p></li>
+<li><p><a class="reference internal" href="#macos"><span class="xref myst">macOS</span></a></p></li>
+</ul>
+<section id="linux">
+<h2>Linux <a id="linux"></a><a class="headerlink" href="#linux" title="Link to this heading"></a></h2>
+<section id="git">
+<h3>Git のインストール<a class="headerlink" href="#git" title="Link to this heading"></a></h3>
+<p>Git のインストール方法は指定しませんが， <code class="docutils literal notranslate"><span class="pre">apt</span></code> 等でインストールして事前に設定を済ませておいてください．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>仮想環境の作成<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Python の 標準ライブラリである venv を使用して仮想環境を作成します．
+下記のコマンドを実行して仮想環境を作成してください．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>optenv
+</pre></div>
+</div>
+<p>ここでは仮想環境の名前を「optenv」と表記しますが，仮想環境の名前は任意のものを設定できます．</p>
+</section>
+<section id="id3">
+<h3>仮想環境のアクティベート<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>仮想環境を利用するには，下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>optenv/bin/activate
+</pre></div>
+</div>
+<p>以降の作業はアクティベート済みのものとして進めます．</p>
+<blockquote>
+<div><p>[!NOTE]
+仮想環境を終了する際は下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="aiaccel">
+<h3>aiaccel のインストール<a class="headerlink" href="#aiaccel" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>[!NOTE]
+事前に pip と setuptools をアップグレードすることを推奨します．
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--version</span></code> コマンドで仮想環境上の pip が表示されることを確認した後，下記のコマンドを実行してください．（システムの Python の pip を使用しないように注意してください．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools
+</pre></div>
+</div>
+</div></blockquote>
+<p>aiaccel は下記コマンドでインストールできます．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/aistairc/aiaccel.git@develop/v2
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<section id="id4">
+<h4>（参考）ローカルからのインストール<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<p>上記の方法とは別の方法でインストールすることもできます．（aiaccelをダウンロードした後，ローカルからインストールする方法です．）</p>
+<p>仮想環境のアクティベートまでの作業は済んでいるものとします．</p>
+<p>まず，任意の場所で aiaccel をダウンロードします．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>develop/v2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/aistairc/aiaccel.git
+</pre></div>
+</div>
+<p>ダウンロード完了後，aiaccel ディレクトリに移動します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel をインストールします．（pyproject.toml ファイルを利用しています．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<blockquote>
+<div><p>[!NOTE]
+当ガイドの内容は WSL2 (Windows Subsystem for Linux 2) で正常に動作することを確認済みです．</p>
+</div></blockquote>
+<p><a class="reference internal" href="#top"><span class="xref myst">back to top</span></a></p>
+<br>
+</section>
+</section>
+</section>
+<section id="abci-ai-bridging-cloud-infrastructure">
+<h2>ABCI <a class="reference external" href="https://abci.ai/ja/about_abci/">(AI Bridging Cloud Infrastructure)</a> <a id="abci"></a><a class="headerlink" href="#abci-ai-bridging-cloud-infrastructure" title="Link to this heading"></a></h2>
+<p>ABCI にはノード (V) とノード (A) という２つのノードがあり，それぞれ使用しているディストリビューションが異なります．<a class="reference external" href="https://docs.abci.ai/ja/system-overview/#software">ABCI システムの概要</a>を参照してください．</p>
+<section id="python">
+<h3>Python 環境の構築<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://docs.abci.ai/ja/python">ABCIユーザーガイド</a>に従って Python 環境を用意します．
+<code class="docutils literal notranslate"><span class="pre">module</span></code> コマンドを使用して Python 環境をロードします．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>python/3.10
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>仮想環境の作成<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Python の 標準ライブラリである venv を使用して仮想環境を作成します．
+下記のコマンドを実行して仮想環境を作成してください．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>optenv
+</pre></div>
+</div>
+<p>ここでは仮想環境の名前を「optenv」と表記しますが，仮想環境の名前は任意のものを設定できます．</p>
+</section>
+<section id="id6">
+<h3>仮想環境のアクティベート<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>仮想環境を利用するには，下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>optenv/bin/activate
+</pre></div>
+</div>
+<p>以降の作業はアクティベート済みのものとして進めます．</p>
+<blockquote>
+<div><p>[!NOTE]
+仮想環境を終了する際は下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id7">
+<h3>aiaccel のインストール<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>[!NOTE]
+事前に pip と setuptools をアップグレードすることを推奨します．
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--version</span></code> コマンドで仮想環境上の pip が表示されることを確認した後，下記のコマンドを実行してください．（システムの Python の pip を使用しないように注意してください．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools
+</pre></div>
+</div>
+</div></blockquote>
+<p>aiaccel は下記コマンドでインストールできます．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/aistairc/aiaccel.git@develop/v2
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<section id="id8">
+<h4>（参考）ローカルからのインストール<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>上記の方法とは別の方法でインストールすることもできます．（aiaccelをダウンロードした後，ローカルからインストールする方法です．）</p>
+<p>仮想環境のアクティベートまでの作業は済んでいるものとします．</p>
+<p>まず，任意の場所で aiaccel をダウンロードします．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>develop/v2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/aistairc/aiaccel.git
+</pre></div>
+</div>
+<p>ダウンロード完了後，aiaccel ディレクトリに移動します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel をインストールします．（pyproject.toml ファイルを利用しています．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<blockquote>
+<div><p>[!NOTE]
+当ガイドの内容は ABCI のインタラクティブノード (V) 上で正常に動作することを確認済みです．</p>
+</div></blockquote>
+<p><a class="reference internal" href="#top"><span class="xref myst">back to top</span></a></p>
+<br>
+</section>
+</section>
+</section>
+<section id="windows">
+<h2>Windows <a id="windows"></a><a class="headerlink" href="#windows" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>[!NOTE]
+（注意）Windowsの場合，ご使用の環境によっては下記の手順が必要になります．</p>
+<p class="rubric" id="execution-polisy">Execution Polisy の設定</p>
+<p>PowerShell を使用して仮想環境を作る場合，セキュリティ設定によって仮想環境をアクティベートするスクリプトが実行できないことがあります．
+<em><strong>以下の手順でセキュリティ設定を変更することが可能ですが，セキュリティリスクが上がることに十分注意してください．詳細は<a class="reference external" href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3">こちら</a>をご確認ください．</strong></em></p>
+<p>以下のコマンドを実行して，PowerShell の設定を確認します．</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Get-ExecutionPolicy</span>
+<span class="go">Restricted</span>
+</pre></div>
+</div>
+<p>この例のように Restricted と表示された場合，以下のコマンドを実行し，設定を変更します．</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Set-ExecutionPolicy RemoteSigned</span>
+</pre></div>
+</div>
+<p>実行後，コマンド <code class="docutils literal notranslate"><span class="pre">Get-ExecutionPolicy</span></code> を実行して，<code class="docutils literal notranslate"><span class="pre">RemoteSigned</span></code> と表示されれば設定完了です．</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Get-ExecutionPolicy</span>
+<span class="go">RemoteSigned</span>
+</pre></div>
+</div>
+<p>使用中の PowerShell ウィンドウのみに変更を適用したい場合，以下のようにオプションを追加して設定します．</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; Set-ExecutionPolicy RemoteSigned -Scope Process</span>
+</pre></div>
+</div>
+</div></blockquote>
+<section id="id9">
+<h3>Git のインストール<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p>あらかじめ <a class="reference external" href="https://gitforwindows.org/">Git</a> をインストールしてください．</p>
+</section>
+<section id="id10">
+<h3>仮想環境の作成<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>Python の 標準ライブラリである venv を使用して仮想環境を作成します．
+下記のコマンドを実行して仮想環境を作成してください．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.exe<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>optenv
+</pre></div>
+</div>
+<p>ここでは仮想環境の名前を「optenv」と表記しますが，仮想環境の名前は任意のものを設定できます．</p>
+</section>
+<section id="id11">
+<h3>仮想環境のアクティベート<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>仮想環境を利用するには，下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.<span class="se">\o</span>ptenv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</pre></div>
+</div>
+<p>以降の作業はアクティベート済みのものとして進めます．</p>
+<blockquote>
+<div><p>[!NOTE]
+仮想環境を終了する際は下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p>[!NOTE]
+（注意）Windows セキュリティによるコンテンツブロック</p>
+<p>ご使用のアンチウイルスソフト(Defender 等)の設定によっては先ほど作成した仮想環境上での pip コマンドや Python コマンド等の操作がブロックされる可能性があります．</p>
+</div></blockquote>
+</section>
+<section id="id12">
+<h3>aiaccel のインストール<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>[!NOTE]
+事前に pip と setuptools をアップグレードすることを推奨します．
+<code class="docutils literal notranslate"><span class="pre">python.exe</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--version</span></code> コマンドで仮想環境上の pip が表示されることを確認した後，下記のコマンドを実行してください．（システムの Python の pip を使用しないように注意してください．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python.exe<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools
+</pre></div>
+</div>
+</div></blockquote>
+<p>aiaccel は下記コマンドでインストールできます．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python.exe<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/aistairc/aiaccel.git@develop/v2
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python.exe<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<section id="id13">
+<h4>（参考）ローカルからのインストール<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<p>上記の方法とは別の方法でインストールすることもできます．（aiaccelをダウンロードした後，ローカルからインストールする方法です．）</p>
+<p>仮想環境のアクティベートまでの作業は済んでいるものとします．</p>
+<p>まず，任意の場所で aiaccel をダウンロードします．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>develop/v2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/aistairc/aiaccel.git
+</pre></div>
+</div>
+<p>ダウンロード完了後，aiaccel ディレクトリに移動します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>.<span class="se">\a</span>iaccel
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel をインストールします．（pyproject.toml ファイルを利用しています．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python.exe<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python.exe<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<blockquote>
+<div><p>[!NOTE]
+当ガイドの内容は Windows 11 上で正常に動作することを確認済みです．</p>
+</div></blockquote>
+<p><a class="reference internal" href="#top"><span class="xref myst">back to top</span></a></p>
+<br>
+</section>
+</section>
+</section>
+<section id="macos">
+<h2>macOS  <a id="macos"></a><a class="headerlink" href="#macos" title="Link to this heading"></a></h2>
+<section id="id14">
+<h3>Git のインストール<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>Git のインストール方法は指定しませんが， <code class="docutils literal notranslate"><span class="pre">homebrew</span></code> 等でインストールして事前に設定を済ませておいてください．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>update
+brew<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h3>仮想環境の作成<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p>Python の 標準ライブラリである venv を使用して仮想環境を作成します．
+下記のコマンドを実行して仮想環境を作成してください．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>optenv
+</pre></div>
+</div>
+<p>ここでは仮想環境の名前を「optenv」と表記しますが，仮想環境の名前は任意のものを設定できます．</p>
+</section>
+<section id="id16">
+<h3>仮想環境のアクティベート<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<p>仮想環境を利用するには，下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>optenv/bin/activate
+</pre></div>
+</div>
+<p>以降の作業はアクティベート済みのものとして進めます．</p>
+<blockquote>
+<div><p>[!NOTE]
+仮想環境を終了する際は下記のコマンドを実行します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id17">
+<h3>aiaccel のインストール<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>[!NOTE]
+事前に pip と setuptools をアップグレードすることを推奨します．
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--version</span></code> コマンドで仮想環境上の pip が表示されることを確認した後，下記のコマンドを実行してください．（システムの Python の pip を使用しないように注意してください．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools
+</pre></div>
+</div>
+</div></blockquote>
+<p>aiaccel は下記コマンドでインストールできます．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/aistairc/aiaccel.git@develop/v2
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<section id="id18">
+<h4>（参考）ローカルからのインストール<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<p>上記の方法とは別の方法でインストールすることもできます．（aiaccelをダウンロードした後，ローカルからインストールする方法です．）</p>
+<p>仮想環境のアクティベートまでの作業は済んでいるものとします．</p>
+<p>まず，任意の場所で aiaccel をダウンロードします．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>develop/v2<span class="w"> </span>--single-branch<span class="w"> </span>https://github.com/aistairc/aiaccel.git
+</pre></div>
+</div>
+<p>ダウンロード完了後，aiaccel ディレクトリに移動します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel をインストールします．（pyproject.toml ファイルを利用しています．）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>下記コマンドを使用して aiaccel がインストールできているか確認します．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>show<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+<p><a class="reference internal" href="#top"><span class="xref myst">back to top</span></a></p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="aiaccelドキュメント" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contribution_guide/auto_formatting_guide.html" class="btn btn-neutral float-right" title="pre-commit による自動フォーマット" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, AIST.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

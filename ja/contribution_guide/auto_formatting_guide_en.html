@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto-formatting by pre-commit &mdash; aiaccel 2.0.0 ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c8adcb1d"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=91613774"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            aiaccel
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">インストール:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">インストールガイド <a id="top"></a></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">コントリビューションガイド:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_formatting_guide.html">pre-commit による自動フォーマット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_formatting_guide.html#id5">静的フォーマットによるチェック</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tips:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tips/qrsh-inherit.html">qsubで実行中の計算ノードでコマンドを実行する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips/rsync-localdir.html">SGE_LOCALDIRを定期的にHOMEなどにrsyncする方法</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">aiaccel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <div>
+        <select name="lang" onchange="location.href=value;">
+            <option value="../../ja/contribution_guide/auto_formatting_guide_en.html"
+                selected
+            >Japanese</option>
+            <option value="../../en/contribution_guide/auto_formatting_guide_en.html"
+            >English</option>
+        </select>
+      </div>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Auto-formatting by pre-commit</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="auto-formatting-by-pre-commit">
+<h1>Auto-formatting by pre-commit<a class="headerlink" href="#auto-formatting-by-pre-commit" title="Link to this heading"></a></h1>
+<p>This guide describes how to format automatically.</p>
+<p>pre-commit is a tool that check a commit by executing a hook accoring to pre-commit configuration. It automatically points out issues on source code when creating commit by executing the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>. <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> is a configuration file which describes hooks used for auto-formatting, such as ruff and mypy.</p>
+<section id="installing-software">
+<h2>Installing software<a class="headerlink" href="#installing-software" title="Link to this heading"></a></h2>
+<p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> command at any location to download aiaccel, and then move to directly under the aiaccel directory. Execute the following command to install tools such as pre-commit and ruff.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/aiaccel
+pip<span class="w"> </span>install<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-configuration-files">
+<h2>Checking configuration files<a class="headerlink" href="#checking-configuration-files" title="Link to this heading"></a></h2>
+<p>Check pyproject.toml and .pre-commit-config.yaml before executing command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.
+Add descriptions in configuration files if you need other hooks.</p>
+</section>
+<section id="enabling-pre-commit">
+<h2>Enabling pre-commit<a class="headerlink" href="#enabling-pre-commit" title="Link to this heading"></a></h2>
+<p>Execute the following command. pre-commit run automatically on <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Setting is done. Now you can do auto-formatting when running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>. If there are issues on source code, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> stops automatically. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> again after fixing some issues.</p>
+<blockquote>
+<div><p>[!NOTE]</p>
+<p class="rubric" id="how-to-run-git-commit-witout-pre-commit">How to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> witout pre-commit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>--no-verify
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p>[!NOTE]</p>
+<p class="rubric" id="how-to-run-pre-commit-regardless-of-git-commit">How to run pre-commit regardless of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>run<span class="w"> </span>-a
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="static-analysis-tool">
+<h1>Static analysis tool<a class="headerlink" href="#static-analysis-tool" title="Link to this heading"></a></h1>
+<section id="running-ruff">
+<h2>Running ruff<a class="headerlink" href="#running-ruff" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ruff<span class="w"> </span>format<span class="w"> </span>aiaccel
+ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+</section>
+<section id="running-mypy">
+<h2>Running mypy<a class="headerlink" href="#running-mypy" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>aiaccel
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, AIST.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
