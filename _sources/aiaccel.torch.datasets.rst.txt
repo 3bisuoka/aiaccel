@@ -1,0 +1,10 @@
+aiaccel.torch.datasets package
+==============================
+
+Module contents
+---------------
+
+.. automodule:: aiaccel.torch.datasets
+   :members:
+   :undoc-members:
+   :show-inheritance:

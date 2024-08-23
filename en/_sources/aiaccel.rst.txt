@@ -1,0 +1,19 @@
+aiaccel package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   aiaccel.hpo
+   aiaccel.torch
+
+Module contents
+---------------
+
+.. automodule:: aiaccel
+   :members:
+   :undoc-members:
+   :show-inheritance:
